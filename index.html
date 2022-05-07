@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ja" class="all">
+  <head>
+    <meta charset="UTF-8">
+    <title>得点計算</title>
+    
+  </head>
+  <body id="body">
+    <h1>得点計算ツール</h1>
+    <h>・平均点は整数で入力してください<br>・数字は半角で入力してください</h>
+    
+    <form  method="POST">
+      <h class="subject">英語Ⅰ</h>
+        <p>平均点<input class="box" id="box1" type="text"></p>
+        <p>点数<input id="box2" class="box" type="text"></p>
+
+      <h class="subject">英語Ⅱ</h>
+        <p>平均点<input class="box" id="box3" type="text"></p>
+        <p>点数<input id="box4" class="box" type="text"></p>
+      
+        <h class="subject">国語Ⅰ</h>
+        <p>平均点<input class="box" id="box5" type="text"></p>
+        <p>点数<input id="box6" class="box" type="text"></p>
+      
+         
+         
+          <p><input type="button" onclick="showMessage()" value="決定"></p>
+
+     </form>
+    
+      <table >
+        <tr>
+          <th></th>
+          <th id="english1"></th>
+          <th id="english2"><th>
+          <th id="japanese1"></th>
+          <th id="japanese2"></th>
+          <th id="math1"></th>
+          <th id="math2"></th>
+          <th id="science1"></th>
+          <th id="science2"></th>
+          <th id="social"></th>
+        </tr>
+        <tr>
+          <th id="averages"></th>
+          <th id="averageEnglish1"></th>
+          <th id="averageEnglish2"></th>
+          <th id="averageJapanese1"></th>
+          <th id="averageJapanese2"></th>
+          <th id="averageMath1"></th>
+          <th id="averageMath2"></th>
+          <th id="averageScience1"></th>
+          <th id="averageScience2"></th>
+          <th id="averageSocial"></th>
+
+        </tr>
+        <tr>
+          <th id="scores"></th>
+          <th id="scoreEnglish1"></th>
+          <th id="scoreEnglish2"></th>
+          <th id="scoreJapanese1"></th>
+          <th id="scoreJapanese2"></th>
+        </tr>
+        <tr>
+          <th id="difference"></th>
+          <th id="english1score"></th>
+          <th id="english2score"></th>
+          <th id="japanese1score"></th>
+          <th id="japanese2score"></th>
+
+        </tr>
+      </table>
+      <script>
+        const showMessage=()=>{
+        const average1=document.getElementById("box1");
+        const averageValue1=average1.value;
+        const averageNumber1=parseInt(averageValue1);
+        const score1=document.getElementById("box2");
+        const scoreValue1=score1.value;
+        const scoreNumber1=parseInt(scoreValue1);
+        const output1=scoreNumber1-averageNumber1;
+        const english1text="英語Ⅰ";
+        const textoutput1="平均点との差";
+
+
+        document.getElementById("english1score").innerHTML=output1;
+        document.getElementById("english1").innerHTML=english1text;
+
+        document.getElementById("difference").innerHTML=textoutput1;
+
+
+        const average2=document.getElementById("box3");
+        const averageValue2=average2.value;
+        const averageNumber2=parseInt(averageValue2);
+        const score2=document.getElementById("box4");
+        const scoreValue2=score2.value;
+        const scoreNumber2=parseInt(scoreValue2);
+        const output2=scoreNumber2-averageNumber2;
+        const english2text="英語Ⅱ";
+        //コピー
+        const average3=document.getElementById("box5");
+        const averageValue3=average3.value;
+        const averageNumber3=parseInt(averageValue3);
+        const score3=document.getElementById("box6");
+        const scoreValue3=score3.value;
+        const scoreNumber3=parseInt(scoreValue3);
+        const output3=scoreNumber3-averageNumber3;
+        const japanese1text="国語Ⅰ";
+       
+        const outputscores="点数";
+        const outputaverages="平均点";
+       
+       
+        document.getElementById("english2score").innerHTML=output2;
+        document.getElementById("english2").innerHTML=english2text;
+       //コピー
+
+       document.getElementById("japanese1score").innerHTML=output3;
+        document.getElementById("japanese1").innerHTML=japanese1text;
+
+        document.getElementById("scores").innerHTML=outputscores;
+        document.getElementById("averages").innerHTML=outputaverages;
+        
+        document.getElementById("scoreEnglish1").innerHTML=scoreValue1;
+        document.getElementById("scoreEnglish2").innerHTML=scoreValue2;
+        document.getElementById("scoreJapanese1").innerHTML=scoreValue3;
+       //増やす
+       document.getElementById("averageEnglish1").innerHTML=averageValue1;
+       document.getElementById("averageEnglish2").innerHTML=averageValue2; 
+       document.getElementById("averageJapanese1").innerHTML=averageValue3; 
+
+      }
+       
+      </script>
+      <style>
+        
+        .box{
+    position: absolute;
+    left: 60px;
+}
+
+.subject{
+    font-size: 30px;
+}
+#body{
+    font-family: serif;
+    
+}
+
+
+      </style>
+  </body>
+</html>
+ 

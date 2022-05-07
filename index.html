@@ -35,12 +35,24 @@
         <p>平均点<input class="box" id="box11" type="text"></p>
         <p>点数<input id="box12" class="box" type="text"></p>
        
-         
+        <h class="subject">理科Ⅰ</h>
+        <p>平均点<input class="box" id="box13" type="text"></p>
+        <p>点数<input id="box14" class="box" type="text"></p>
+       
+        
+        <h class="subject">理科Ⅱ</h>
+        <p>平均点<input class="box" id="box15" type="text"></p>
+        <p>点数<input id="box16" class="box" type="text"></p>
+       
+        <h class="subject">社会</h>
+        <p>平均点<input class="box" id="box17" type="text"></p>
+        <p>点数<input id="box18" class="box" type="text"></p>
+       
           <p><input type="button" onclick="showMessage()" value="決定"></p>
 
      </form>
     
-      <table>
+      <table border="1">
         <tr  class="position">
           <th></th>
           <th id="english1"></th>
@@ -52,6 +64,7 @@
           <th id="science1"></th>
           <th id="science2"></th>
           <th id="social"></th>
+          <th id="total"></th>
         </tr>
         <tr class="position">
           <th id="averages"></th>
@@ -64,6 +77,7 @@
           <th id="averageScience1"></th>
           <th id="averageScience2"></th>
           <th id="averageSocial"></th>
+          <th id="averageTotal"></th>
 
         </tr>
         <tr class="position">
@@ -77,6 +91,7 @@
           <th id="scoreScience1"></th>
           <th id="scoreScience2"></th>
           <th id="scoreSocial"></th>
+          <th id="scoreTotal"></th>
         </tr>
         <tr class="position">
           <th id="difference"></th>
@@ -89,6 +104,7 @@
           <th id="science1score"></th>
           <th id="science2score"></th>
           <th id="socialscore"></th>
+          <th id="totalscore"></th>
 
         </tr>
       </table>
@@ -120,6 +136,8 @@
         const output2=scoreNumber2-averageNumber2;
         const english2text="英語Ⅱ";
         //コピー
+        
+        
 
 
         const average5=document.getElementById("box9");
@@ -157,7 +175,34 @@
         const scoreNumber3=parseInt(scoreValue3);
         const output3=scoreNumber3-averageNumber3;
         const japanese1text="国語Ⅰ";
-       
+      
+        const average7=document.getElementById("box13");
+        const averageValue7=average7.value;
+        const averageNumber7=parseInt(averageValue7);
+        const score7=document.getElementById("box14");
+        const scoreValue7=score7.value;
+        const scoreNumber7=parseInt(scoreValue7);
+        const output7=scoreNumber7-averageNumber7;
+        const science1text="理科Ⅰ";
+      
+        const average8=document.getElementById("box15");
+        const averageValue8=average8.value;
+        const averageNumber8=parseInt(averageValue8);
+        const score8=document.getElementById("box16");
+        const scoreValue8=score8.value;
+        const scoreNumber8=parseInt(scoreValue8);
+        const output8=scoreNumber8-averageNumber8;
+        const science2text="理科Ⅱ";
+      
+        const average9=document.getElementById("box17");
+        const averageValue9=average9.value;
+        const averageNumber9=parseInt(averageValue9);
+        const score9=document.getElementById("box18");
+        const scoreValue9=score9.value;
+        const scoreNumber9=parseInt(scoreValue9);
+        const output9=scoreNumber9-averageNumber9;
+        const socialtext="社会";
+
         const outputscores="点数";
         const outputaverages="平均点";
        
@@ -179,6 +224,14 @@
         document.getElementById("math2score").innerHTML=output6;
         document.getElementById("math2").innerHTML=math2text;
 
+        document.getElementById("science1score").innerHTML=output7;
+        document.getElementById("science1").innerHTML=science1text;
+        document.getElementById("science2score").innerHTML=output8;
+        document.getElementById("science2").innerHTML=science2text;
+
+        document.getElementById("socialscore").innerHTML=output9;
+        document.getElementById("social").innerHTML=socialtext;
+
 
         document.getElementById("scores").innerHTML=outputscores;
         document.getElementById("averages").innerHTML=outputaverages;
@@ -189,6 +242,9 @@
         document.getElementById("scoreJapanese2").innerHTML=scoreValue4;
         document.getElementById("scoreMath1").innerHTML=scoreValue5;
         document.getElementById("scoreMath2").innerHTML=scoreValue6;
+        document.getElementById("scoreScience1").innerHTML=scoreValue7;
+        document.getElementById("scoreScience2").innerHTML=scoreValue8;
+        document.getElementById("scoreSocial").innerHTML=scoreValue9;
        //増やす
        document.getElementById("averageEnglish1").innerHTML=averageValue1;
        document.getElementById("averageEnglish2").innerHTML=averageValue2; 
@@ -196,9 +252,22 @@
        document.getElementById("averageJapanese2").innerHTML=averageValue4; 
        document.getElementById("averageMath1").innerHTML=averageValue5;
        document.getElementById("averageMath2").innerHTML=averageValue6;
+       document.getElementById("averageScience1").innerHTML=averageValue7;
+       document.getElementById("averageScience2").innerHTML=averageValue8;
+       document.getElementById("averageSocial").innerHTML=averageValue9;
 
       //増やす
-      }
+      
+      const total1=averageNumber1+averageNumber2+averageNumber3+averageNumber4+averageNumber5+averageNumber6+averageNumber7+averageNumber8+averageNumber9;
+        document.getElementById("averageTotal").innerHTML=total1;
+      const total2="合計";
+      document.getElementById("total").innerHTML=total2;
+      const total3=scoreNumber1+scoreNumber2+scoreNumber3+scoreNumber4+scoreNumber5+scoreNumber6+scoreNumber7+scoreNumber8+scoreNumber9;
+      document.getElementById("scoreTotal").innerHTML=total3;
+      const total4=total3-total1;
+      document.getElementById("totalscore").innerHTML=total4;
+    }
+    
        
       </script>
       <style>

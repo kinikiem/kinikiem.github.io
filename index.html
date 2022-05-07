@@ -7,6 +7,7 @@
   </head>
   <body id="body">
     <h1>得点計算ツール</h1>
+    <h2>・使い方<br>平均点と点数を入力して決定ボタンを押すと下に表が作られます</h2>
     <h>・平均点は整数で入力してください<br>・数字は半角で入力してください</h>
     
     <form  method="POST">
@@ -21,18 +22,29 @@
         <h class="subject">国語Ⅰ</h>
         <p>平均点<input class="box" id="box5" type="text"></p>
         <p>点数<input id="box6" class="box" type="text"></p>
+
+        <h class="subject">国語Ⅱ</h>
+        <p>平均点<input class="box" id="box7" type="text"></p>
+        <p>点数<input id="box8" class="box" type="text"></p>
       
-         
+        <h class="subject">数学A</h>
+        <p>平均点<input class="box" id="box9" type="text"></p>
+        <p>点数<input id="box10" class="box" type="text"></p>
+       
+        <h class="subject">数学Ⅰ</h>
+        <p>平均点<input class="box" id="box11" type="text"></p>
+        <p>点数<input id="box12" class="box" type="text"></p>
+       
          
           <p><input type="button" onclick="showMessage()" value="決定"></p>
 
      </form>
     
-      <table >
-        <tr>
+      <table>
+        <tr  class="position">
           <th></th>
           <th id="english1"></th>
-          <th id="english2"><th>
+          <th id="english2"></th>
           <th id="japanese1"></th>
           <th id="japanese2"></th>
           <th id="math1"></th>
@@ -41,7 +53,7 @@
           <th id="science2"></th>
           <th id="social"></th>
         </tr>
-        <tr>
+        <tr class="position">
           <th id="averages"></th>
           <th id="averageEnglish1"></th>
           <th id="averageEnglish2"></th>
@@ -54,19 +66,29 @@
           <th id="averageSocial"></th>
 
         </tr>
-        <tr>
+        <tr class="position">
           <th id="scores"></th>
           <th id="scoreEnglish1"></th>
           <th id="scoreEnglish2"></th>
           <th id="scoreJapanese1"></th>
           <th id="scoreJapanese2"></th>
+          <th id="scoreMath1"></th>
+          <th id="scoreMath2"></th>
+          <th id="scoreScience1"></th>
+          <th id="scoreScience2"></th>
+          <th id="scoreSocial"></th>
         </tr>
-        <tr>
+        <tr class="position">
           <th id="difference"></th>
           <th id="english1score"></th>
           <th id="english2score"></th>
           <th id="japanese1score"></th>
           <th id="japanese2score"></th>
+          <th id="math1score"></th>
+          <th id="math2score"></th>
+          <th id="science1score"></th>
+          <th id="science2score"></th>
+          <th id="socialscore"></th>
 
         </tr>
       </table>
@@ -80,9 +102,9 @@
         const scoreNumber1=parseInt(scoreValue1);
         const output1=scoreNumber1-averageNumber1;
         const english1text="英語Ⅰ";
+
         const textoutput1="平均点との差";
-
-
+        
         document.getElementById("english1score").innerHTML=output1;
         document.getElementById("english1").innerHTML=english1text;
 
@@ -98,6 +120,35 @@
         const output2=scoreNumber2-averageNumber2;
         const english2text="英語Ⅱ";
         //コピー
+
+
+        const average5=document.getElementById("box9");
+        const averageValue5=average5.value;
+        const averageNumber5=parseInt(averageValue5);
+        const score5=document.getElementById("box10");
+        const scoreValue5=score5.value;
+        const scoreNumber5=parseInt(scoreValue5);
+        const output5=scoreNumber5-averageNumber5;
+        const math1text="数学A";
+
+        const average4=document.getElementById("box7");
+        const averageValue4=average4.value;
+        const averageNumber4=parseInt(averageValue2);
+        const score4=document.getElementById("box8");
+        const scoreValue4=score4.value;
+        const scoreNumber4=parseInt(scoreValue4);
+        const output4=scoreNumber4-averageNumber4;
+        const japanese2text="国語Ⅱ";
+
+        const average6=document.getElementById("box11");
+        const averageValue6=average6.value;
+        const averageNumber6=parseInt(averageValue6);
+        const score6=document.getElementById("box12");
+        const scoreValue6=score6.value;
+        const scoreNumber6=parseInt(scoreValue6);
+        const output6=scoreNumber6-averageNumber6;
+        const math2text="数学Ⅰ";
+
         const average3=document.getElementById("box5");
         const averageValue3=average3.value;
         const averageNumber3=parseInt(averageValue3);
@@ -113,10 +164,21 @@
        
         document.getElementById("english2score").innerHTML=output2;
         document.getElementById("english2").innerHTML=english2text;
+
        //コピー
+
+       document.getElementById("math1score").innerHTML=output5;
+        document.getElementById("math1").innerHTML=math1text;
+
+       document.getElementById("japanese2score").innerHTML=output4;
+        document.getElementById("japanese2").innerHTML=japanese2text;
 
        document.getElementById("japanese1score").innerHTML=output3;
         document.getElementById("japanese1").innerHTML=japanese1text;
+
+        document.getElementById("math2score").innerHTML=output6;
+        document.getElementById("math2").innerHTML=math2text;
+
 
         document.getElementById("scores").innerHTML=outputscores;
         document.getElementById("averages").innerHTML=outputaverages;
@@ -124,11 +186,18 @@
         document.getElementById("scoreEnglish1").innerHTML=scoreValue1;
         document.getElementById("scoreEnglish2").innerHTML=scoreValue2;
         document.getElementById("scoreJapanese1").innerHTML=scoreValue3;
+        document.getElementById("scoreJapanese2").innerHTML=scoreValue4;
+        document.getElementById("scoreMath1").innerHTML=scoreValue5;
+        document.getElementById("scoreMath2").innerHTML=scoreValue6;
        //増やす
        document.getElementById("averageEnglish1").innerHTML=averageValue1;
        document.getElementById("averageEnglish2").innerHTML=averageValue2; 
-       document.getElementById("averageJapanese1").innerHTML=averageValue3; 
+       document.getElementById("averageJapanese1").innerHTML=averageValue3;
+       document.getElementById("averageJapanese2").innerHTML=averageValue4; 
+       document.getElementById("averageMath1").innerHTML=averageValue5;
+       document.getElementById("averageMath2").innerHTML=averageValue6;
 
+      //増やす
       }
        
       </script>
